@@ -3,10 +3,12 @@
 # Table name: frames
 #
 #  id            :bigint           not null, primary key
+#  frame_total   :integer          default(0)
 #  position      :integer          default(0)
-#  slot_1_points :integer          default(0)
-#  slot_2_points :integer          default(0)
-#  slot_3_points :integer          default(0)
+#  slot_1_points :integer
+#  slot_2_points :integer
+#  slot_3_points :integer
+#  status        :integer          default("completed")
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  game_id       :bigint           not null
@@ -21,9 +23,81 @@
 #
 
 class Frame < ApplicationRecord
-  # associations
-  belongs_to :game
-
   # It will set position when frame creates
   acts_as_list scope: :game_id
+
+  # associations
+  belongs_to :game, inverse_of: :frames
+
+  # validations
+  validate :frame_position
+  validate :frame_total_score
+
+  # To define status of frame
+  enum :status, [ :active, :completed ]
+
+  # scopes
+  default_scope { order(:position) }
+
+  # custom validation methods
+  def frame_position
+    if game.frames.count >= 10
+      errors.add(:frame_position, "can't not be more then 10")
+    end
+  end
+
+  def frame_total_score
+    if position < 10 && (slot_1_points.to_i + slot_2_points.to_i) > 10
+      errors.add(:frame_total, "can't not be more then 10")
+    end
+  end
+
+  # class methods
+  def self.active_frame
+    active_frame = active.last
+    unless active_frame.present?
+      active_frame = create(status: :active)
+    end
+
+    active_frame
+  end
+
+  # instance methods
+  def add_score(score: 0)
+    # save score in respected slots
+    save_score(score: score)
+
+    # calculate frame total score
+    calculate_frame_total
+
+    self
+  end
+
+  private
+
+    def save_score(score: 0)
+      if slot_1_points.nil?
+        self.slot_1_points = score
+      elsif slot_2_points.nil? && (slot_1_points + score < 10)
+        self.slot_2_points = score
+      elsif (position == 10 && slot_3_points.nil?)
+        self.slot_3_points = score
+      end
+
+      # mark frame as a completed
+      mark_frame_as_completed(score: score)
+
+      # save frame
+      self.save
+    end
+
+    def mark_frame_as_completed(score: 0)
+      if (position < 10 && (score == 10 || slot_2_points_changed?)) || slot_3_points_changed?
+        self.status = :completed
+      end
+    end
+
+    def calculate_frame_total
+    end
 end
+

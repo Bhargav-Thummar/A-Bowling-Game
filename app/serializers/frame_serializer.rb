@@ -3,10 +3,12 @@
 # Table name: frames
 #
 #  id            :bigint           not null, primary key
+#  frame_total   :integer          default(0)
 #  position      :integer          default(0)
-#  slot_1_points :integer          default(0)
-#  slot_2_points :integer          default(0)
-#  slot_3_points :integer          default(0)
+#  slot_1_points :integer
+#  slot_2_points :integer
+#  slot_3_points :integer
+#  status        :integer          default("completed")
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  game_id       :bigint           not null

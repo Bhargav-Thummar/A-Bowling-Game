@@ -14,5 +14,9 @@ class Game < ApplicationRecord
   validates :player_name, presence: true
 
   # associations
-  has_many :frames, dependent: :destroy
+  has_many :frames, inverse_of: :game, dependent: :destroy
+
+  def add_score(score: 0)
+    frames.active_frame.add_score(score: score)
+  end
 end

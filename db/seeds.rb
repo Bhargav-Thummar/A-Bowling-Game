@@ -50,8 +50,8 @@ frames_1 =
       slot_2_points: 4
     },
     {
-      slot_1_points: 3,
-      slot_2_points: 4
+      slot_1_points: 2,
+      status: :active
     }
   ]
 
@@ -104,7 +104,7 @@ frames_2 =
     },
     {
       slot_1_points: 3,
-      slot_2_points: 4
+      slot_2_points: 7
     }
   ]
 

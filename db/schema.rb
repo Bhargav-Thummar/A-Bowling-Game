@@ -17,9 +17,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_28_122203) do
   create_table "frames", force: :cascade do |t|
     t.bigint "game_id", null: false
     t.integer "position", default: 0
-    t.integer "slot_1_points", default: 0
-    t.integer "slot_2_points", default: 0
-    t.integer "slot_3_points", default: 0
+    t.integer "slot_1_points"
+    t.integer "slot_2_points"
+    t.integer "slot_3_points"
+    t.integer "status", default: 1
+    t.integer "frame_total", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_frames_on_game_id"
