@@ -12,6 +12,9 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
+# To serialize JSON response
+gem "active_model_serializers"
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 
@@ -41,6 +44,9 @@ gem 'acts_as_list'
 
 group :development, :test do
   gem "pry"
+
+  # To add a comment summarizing the current schema to the top of each model
+  gem "annotate"
 end
 
 group :development do
