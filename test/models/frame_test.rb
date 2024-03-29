@@ -22,7 +22,7 @@
 #  fk_rails_...  (game_id => games.id)
 #
 
-require "test_helper"
+require 'test_helper'
 
 class FrameTest < ActiveSupport::TestCase
   # test "the truth" do

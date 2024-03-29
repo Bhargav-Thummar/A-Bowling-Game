@@ -1,5 +1,5 @@
 class Api::V1::GamesController < ApplicationController
-  before_action :current_game, only: [:add_score, :get_score_card]
+  before_action :current_game, only: %i[add_score get_score_card]
 
   def index
     render(json: Game.all, each_serializer: GameSerializer)
@@ -14,15 +14,15 @@ class Api::V1::GamesController < ApplicationController
     if @game.save
       set_current_game
       render(
-        json: { message: "Congratulation #{@game.player_name}!, You can start game"}, 
+        json: { message: "Congratulation #{@game.player_name}!, You can start game" }
       )
 
     else
       render(
-        json: 
-          { 
-            error: @game.errors.full_messages 
-          }, 
+        json:
+          {
+            error: @game.errors.full_messages
+          },
         status: :unprocessable_entity
       )
     end
@@ -31,30 +31,30 @@ class Api::V1::GamesController < ApplicationController
   def add_score
     frame = current_game.add_score(score: score_params[:score]&.to_i)
 
-    unless frame.errors.any?
-      render(json: current_game, serializer: GameSerializer)
-    else
+    if frame.errors.any?
       render(
-        json: 
-          { 
-            error: frame.errors.full_messages 
-          }, 
+        json:
+          {
+            error: frame.errors.full_messages
+          },
         status: :unprocessable_entity
       )
+    else
+      render(json: current_game, serializer: GameSerializer)
     end
   end
 
   private
 
-    def set_current_game
-      session[:game_id] = @game.id
-    end
+  def set_current_game
+    session[:game_id] = @game.id
+  end
 
-    def game_params
-      params.require(:game).permit(:player_name)
-    end
+  def game_params
+    params.require(:game).permit(:player_name)
+  end
 
-    def score_params
-      params.require(:frame).permit(:score)
-    end
+  def score_params
+    params.require(:frame).permit(:score)
+  end
 end

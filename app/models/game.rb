@@ -16,7 +16,7 @@ class Game < ApplicationRecord
   has_many :frames, inverse_of: :game, dependent: :destroy
 
   def add_score(score: 0)
-    frames.active_frame.add_score(score: score)
+    frames.active_frame.add_score(score:)
   end
 
   def total_score

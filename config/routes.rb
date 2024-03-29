@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
   namespace :api, path: nil, defaults: { format: 'json' } do
     namespace :v1, defaults: { format: 'json' } do
-      resources :games, only: [:index, :create] do
+      resources :games, only: %i[index create] do
         collection do
-          get :get_score_card, to: "games#get_score_card", as: :get_score_card
-          post :add_score, to: "games#add_score", as: :games_add_score
+          get :get_score_card, to: 'games#get_score_card', as: :get_score_card
+          post :add_score, to: 'games#add_score', as: :games_add_score
         end
       end
     end

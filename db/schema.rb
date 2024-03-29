@@ -10,28 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_28_122203) do
+ActiveRecord::Schema[7.0].define(version: 20_240_328_122_203) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "frames", force: :cascade do |t|
-    t.bigint "game_id", null: false
-    t.integer "position", default: 0
-    t.integer "slot_1_points"
-    t.integer "slot_2_points"
-    t.integer "slot_3_points"
-    t.integer "status", default: 1
-    t.integer "frame_total"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_frames_on_game_id"
+  create_table 'frames', force: :cascade do |t|
+    t.bigint 'game_id', null: false
+    t.integer 'position', default: 0
+    t.integer 'slot_1_points'
+    t.integer 'slot_2_points'
+    t.integer 'slot_3_points'
+    t.integer 'status', default: 1
+    t.integer 'frame_total'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['game_id'], name: 'index_frames_on_game_id'
   end
 
-  create_table "games", force: :cascade do |t|
-    t.string "player_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'games', force: :cascade do |t|
+    t.string 'player_name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  add_foreign_key "frames", "games"
+  add_foreign_key 'frames', 'games'
 end
