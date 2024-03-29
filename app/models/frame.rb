@@ -3,7 +3,7 @@
 # Table name: frames
 #
 #  id            :bigint           not null, primary key
-#  frame_total   :integer          default(0)
+#  frame_total   :integer
 #  position      :integer          default(0)
 #  slot_1_points :integer
 #  slot_2_points :integer
@@ -57,11 +57,11 @@ class Frame < ApplicationRecord
     # mark frame as a completed
     mark_frame_as_completed(score: score)
 
+    # calculate frame total score
+    calculate_total
+
     # save frame
     self.save
-
-    # calculate frame total score
-    calculate_frame_total
 
     self
   end
@@ -76,40 +76,36 @@ class Frame < ApplicationRecord
     end
   
     def frame_slot_score
-      if position < 10
-        # position is less than 10 but sum of points of slot-1 & slot-2 is greater than 10
-        if (slot_1_points.to_i + slot_2_points.to_i) > 10
-          errors.add(:frame_total, I18n.t("errors.limit"))
-        end
+      # position is less than 10 but sum of points of slot-1 & slot-2 is greater than 10
+      if (slot_1_points.to_i + slot_2_points.to_i) > 10
+        errors.add(:frame_total, I18n.t("errors.limit"))
+        return
+      end
 
-      elsif position == 10
+      if position == 10
         # all points is greater than 10
         if slot_1_points.to_i > 10 || slot_2_points.to_i > 10 || slot_3_points.to_i > 10
           errors.add(:frame_total, I18n.t("errors.limit"))
 
-        # points of slot-1 & slot-2 is 10 but points slot-3 is greater than 10
-        elsif slot_1_points.to_i == 10 && slot_2_points.to_i == 10 && slot_3_points.to_i > 10
-          errors.add(:slot_3_points, I18n.t("errors.limit"))
+        elsif slot_2_points.to_i <= 10 && slot_3_points.to_i <= 10
 
-        # slot-1 is 10 but sum of points of slot-2 & slot-3 are greater than 10
-        elsif slot_1_points.to_i == 10 && slot_2_points.to_i < 10 && slot_3_points.to_i <= 10
-          if (slot_2_points.to_i + slot_3_points.to_i) > 10
-            errors.add(:frame_total, I18n.t("errors.limit"))
+          # slot-1 is 10 but sum of points of slot-2 & slot-3 are greater than 10
+          if slot_1_points.to_i == 10
+            if (slot_2_points.to_i + slot_3_points.to_i) > 10
+              errors.add(:frame_total, I18n.t("errors.limit"))
+            end
+
+          # sum of 2 points is greater than 10 OR sum of all points is greater than 10
+          elsif slot_1_points.to_i < 10 && (slot_1_points.to_i + slot_2_points.to_i) != 10
+            if ((slot_1_points.to_i + slot_2_points.to_i) < 10 && (slot_1_points.to_i + slot_2_points.to_i + slot_3_points.to_i) > 10) 
+              errors.add(:frame_total, I18n.t("errors.limit"))
+            end
           end
 
-        # sum of points of slot-1 & slot-2 are greater than 10 and point of slot-3 is also greater than 10
-        elsif (slot_1_points.to_i + slot_2_points.to_i) == 10 && slot_3_points.to_i > 10
-          errors.add(:slot_3_points, I18n.t("errors.limit"))
-
-        # sum of all points are greater than 10 but sum of any 2 points is less than 10
-        elsif slot_1_points.to_i < 10 && slot_2_points.to_i < 10 && slot_3_points.to_i <= 10
-          if (slot_1_points.to_i + slot_2_points.to_i + slot_3_points.to_i) > 10
-            errors.add(:frame_total, I18n.t("errors.limit"))
-          end
         end
       end
     end
- 
+
     def assign_score(score: 0)
       # assign score
       if slot_1_points.nil?
@@ -127,8 +123,46 @@ class Frame < ApplicationRecord
       end
     end
 
-    def calculate_frame_total
+    def calculate_total
+      total = 0
+      game = self.game
 
+      first_previous_frame = self.higher_item
+      second_previous_frame = first_previous_frame&.higher_item
+      third_previous_frame = second_previous_frame&.higher_item # to get frame total of this frame
+
+      # assign frame total in 2nd previous frame if score in yet assigned
+      if second_previous_frame && second_previous_frame&.frame_total.nil?
+        second_previous_frame_total =
+          if second_previous_frame&.slot_1_points == 10
+            10 + first_previous_frame&.slot_1_points + (first_previous_frame&.slot_2_points || self.slot_1_points)
+
+          elsif (second_previous_frame&.slot_1_points + second_previous_frame&.slot_2_points) == 10
+            10 + first_previous_frame&.slot_1_points
+          end
+
+          # update score of second previous frame
+          second_previous_frame.update(frame_total: third_previous_frame&.frame_total.to_i + second_previous_frame_total)
+      end
+
+      # assign frame total in 1st previous frame if score in yet assigned
+      if first_previous_frame && first_previous_frame&.frame_total.nil? 
+        previous_frame_frame_total = 
+          if first_previous_frame&.slot_1_points != 10 && (first_previous_frame&.slot_1_points.to_i + first_previous_frame&.slot_2_points.to_i) == 10
+            10 + slot_1_points.to_i
+
+          elsif first_previous_frame&.slot_1_points == 10 && slot_2_points.present?
+            10 + slot_1_points + slot_2_points
+          end
+
+          # update score of first previous frame
+          first_previous_frame.update(frame_total: second_previous_frame&.frame_total.to_i + previous_frame_frame_total) if previous_frame_frame_total
+      end
+
+      # assign frame total in current active frame
+      if self.completed? && ((slot_1_points.to_i + slot_2_points.to_i) < 10 || position == 10)
+        self.frame_total = first_previous_frame&.frame_total.to_i + slot_1_points.to_i + slot_2_points.to_i + slot_3_points.to_i
+      end
     end
 end
 

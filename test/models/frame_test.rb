@@ -3,7 +3,7 @@
 # Table name: frames
 #
 #  id            :bigint           not null, primary key
-#  frame_total   :integer          default(0)
+#  frame_total   :integer
 #  position      :integer          default(0)
 #  slot_1_points :integer
 #  slot_2_points :integer

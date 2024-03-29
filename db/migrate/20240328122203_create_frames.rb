@@ -7,7 +7,7 @@ class CreateFrames < ActiveRecord::Migration[7.0]
       t.integer :slot_2_points
       t.integer :slot_3_points
       t.integer :status, default: 1 # completed
-      t.integer :frame_total, default: 0
+      t.integer :frame_total
 
       t.timestamps
     end
