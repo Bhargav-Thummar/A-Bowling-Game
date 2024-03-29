@@ -47,4 +47,8 @@ Here is the list of APIs
 | `POST`    | `/v1/games/add_score`                          | To add score.                       |
 | `GET`  | `/v1/games/get_score_card`                          | To get recent game score 
 
+## How to Use
+
 - Now go to http://localhost:3000, and we should see the Rails boot screen.
+
+- Please import attached API collection into the postman to test the APIs [a_bowling_game.postman_collection.json](a_bowling_game.postman_collection.json)

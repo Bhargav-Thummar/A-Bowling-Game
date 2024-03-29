@@ -1,0 +1,502 @@
+{
+	"info": {
+		"_postman_id": "66d205ec-ec4a-4000-a831-f79d2967599f",
+		"name": "A Bowling Game",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26869495"
+	},
+	"item": [
+		{
+			"name": "index",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/v1/games",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"games"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "index",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/v1/games",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"games"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"92cd27dc027b41cc87606bd48dad9e73\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "deb9f690-3aa4-4457-896e-2b0ee80b3602"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.165997"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "sql.active_record;dur=50.40, start_processing.action_controller;dur=0.17, instantiation.active_record;dur=18.96, render.active_model_serializers;dur=78.78, process_action.action_controller;dur=96.82"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"player_name\": \"Adam Smith\",\n        \"total_score\": 290,\n        \"frames\": [\n            {\n                \"id\": 1,\n                \"position\": 1,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 30\n            },\n            {\n                \"id\": 2,\n                \"position\": 2,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 60\n            },\n            {\n                \"id\": 3,\n                \"position\": 3,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 90\n            },\n            {\n                \"id\": 4,\n                \"position\": 4,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 120\n            },\n            {\n                \"id\": 5,\n                \"position\": 5,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 150\n            },\n            {\n                \"id\": 6,\n                \"position\": 6,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 180\n            },\n            {\n                \"id\": 7,\n                \"position\": 7,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 210\n            },\n            {\n                \"id\": 8,\n                \"position\": 8,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 240\n            },\n            {\n                \"id\": 9,\n                \"position\": 9,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 270\n            },\n            {\n                \"id\": 20,\n                \"position\": 10,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": 2,\n                \"slot_3_points\": 8,\n                \"frame_total\": 290\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"player_name\": \"Adam Smith\",\n        \"total_score\": 120,\n        \"frames\": [\n            {\n                \"id\": 21,\n                \"position\": 1,\n                \"slot_1_points\": 4,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": 8\n            },\n            {\n                \"id\": 22,\n                \"position\": 2,\n                \"slot_1_points\": 4,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": 16\n            },\n            {\n                \"id\": 23,\n                \"position\": 3,\n                \"slot_1_points\": 4,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": 24\n            },\n            {\n                \"id\": 24,\n                \"position\": 4,\n                \"slot_1_points\": 4,\n                \"slot_2_points\": 5,\n                \"slot_3_points\": null,\n                \"frame_total\": 33\n            },\n            {\n                \"id\": 25,\n                \"position\": 5,\n                \"slot_1_points\": 5,\n                \"slot_2_points\": 5,\n                \"slot_3_points\": null,\n                \"frame_total\": 48\n            },\n            {\n                \"id\": 26,\n                \"position\": 6,\n                \"slot_1_points\": 5,\n                \"slot_2_points\": 5,\n                \"slot_3_points\": null,\n                \"frame_total\": 63\n            },\n            {\n                \"id\": 27,\n                \"position\": 7,\n                \"slot_1_points\": 5,\n                \"slot_2_points\": 5,\n                \"slot_3_points\": null,\n                \"frame_total\": 78\n            },\n            {\n                \"id\": 28,\n                \"position\": 8,\n                \"slot_1_points\": 5,\n                \"slot_2_points\": 5,\n                \"slot_3_points\": null,\n                \"frame_total\": 93\n            },\n            {\n                \"id\": 29,\n                \"position\": 9,\n                \"slot_1_points\": 5,\n                \"slot_2_points\": 3,\n                \"slot_3_points\": null,\n                \"frame_total\": 101\n            },\n            {\n                \"id\": 30,\n                \"position\": 10,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": 2,\n                \"slot_3_points\": 7,\n                \"frame_total\": 120\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"player_name\": \"Bhargav Thummar\",\n        \"total_score\": 0,\n        \"frames\": [\n            {\n                \"id\": 31,\n                \"position\": 1,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 32,\n                \"position\": 2,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": 0,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 33,\n                \"position\": 3,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 34,\n                \"position\": 4,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 35,\n                \"position\": 5,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 36,\n                \"position\": 6,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 37,\n                \"position\": 7,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 38,\n                \"position\": 8,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 39,\n                \"position\": 9,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 40,\n                \"position\": 10,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 7,\n                \"slot_3_points\": 10,\n                \"frame_total\": null\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"player_name\": \"Simform Solutions\",\n        \"total_score\": 0,\n        \"frames\": [\n            {\n                \"id\": 41,\n                \"position\": 1,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 42,\n                \"position\": 2,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": 0,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 43,\n                \"position\": 3,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 44,\n                \"position\": 4,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 45,\n                \"position\": 5,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 46,\n                \"position\": 6,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 47,\n                \"position\": 7,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 48,\n                \"position\": 8,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 49,\n                \"position\": 9,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": null\n            },\n            {\n                \"id\": 50,\n                \"position\": 10,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 7,\n                \"slot_3_points\": 10,\n                \"frame_total\": null\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"player_name\": \"Adam Smith\",\n        \"total_score\": 117,\n        \"frames\": [\n            {\n                \"id\": 51,\n                \"position\": 1,\n                \"slot_1_points\": 7,\n                \"slot_2_points\": 2,\n                \"slot_3_points\": null,\n                \"frame_total\": 9\n            },\n            {\n                \"id\": 52,\n                \"position\": 2,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 38\n            },\n            {\n                \"id\": 53,\n                \"position\": 3,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 57\n            },\n            {\n                \"id\": 54,\n                \"position\": 4,\n                \"slot_1_points\": 9,\n                \"slot_2_points\": 0,\n                \"slot_3_points\": null,\n                \"frame_total\": 66\n            },\n            {\n                \"id\": 55,\n                \"position\": 5,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 6,\n                \"slot_3_points\": null,\n                \"frame_total\": 75\n            },\n            {\n                \"id\": 56,\n                \"position\": 6,\n                \"slot_1_points\": 6,\n                \"slot_2_points\": 2,\n                \"slot_3_points\": null,\n                \"frame_total\": 83\n            },\n            {\n                \"id\": 57,\n                \"position\": 7,\n                \"slot_1_points\": 1,\n                \"slot_2_points\": 3,\n                \"slot_3_points\": null,\n                \"frame_total\": 87\n            },\n            {\n                \"id\": 58,\n                \"position\": 8,\n                \"slot_1_points\": 7,\n                \"slot_2_points\": 3,\n                \"slot_3_points\": null,\n                \"frame_total\": 100\n            },\n            {\n                \"id\": 59,\n                \"position\": 9,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": 107\n            },\n            {\n                \"id\": 60,\n                \"position\": 10,\n                \"slot_1_points\": 2,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": 4,\n                \"frame_total\": 117\n            }\n        ]\n    },\n    {\n        \"id\": 6,\n        \"player_name\": \"Adam Smith\",\n        \"total_score\": 152,\n        \"frames\": [\n            {\n                \"id\": 61,\n                \"position\": 1,\n                \"slot_1_points\": 8,\n                \"slot_2_points\": 2,\n                \"slot_3_points\": null,\n                \"frame_total\": 17\n            },\n            {\n                \"id\": 62,\n                \"position\": 2,\n                \"slot_1_points\": 7,\n                \"slot_2_points\": 3,\n                \"slot_3_points\": null,\n                \"frame_total\": 30\n            },\n            {\n                \"id\": 63,\n                \"position\": 3,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": 37\n            },\n            {\n                \"id\": 64,\n                \"position\": 4,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 49\n            },\n            {\n                \"id\": 65,\n                \"position\": 5,\n                \"slot_1_points\": 2,\n                \"slot_2_points\": 8,\n                \"slot_3_points\": null,\n                \"frame_total\": 69\n            },\n            {\n                \"id\": 66,\n                \"position\": 6,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 89\n            },\n            {\n                \"id\": 67,\n                \"position\": 7,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 107\n            },\n            {\n                \"id\": 68,\n                \"position\": 8,\n                \"slot_1_points\": 8,\n                \"slot_2_points\": 0,\n                \"slot_3_points\": null,\n                \"frame_total\": 115\n            },\n            {\n                \"id\": 69,\n                \"position\": 9,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 133\n            },\n            {\n                \"id\": 70,\n                \"position\": 10,\n                \"slot_1_points\": 8,\n                \"slot_2_points\": 2,\n                \"slot_3_points\": 9,\n                \"frame_total\": 152\n            }\n        ]\n    },\n    {\n        \"id\": 7,\n        \"player_name\": \"Adam Smith\",\n        \"total_score\": 170,\n        \"frames\": [\n            {\n                \"id\": 71,\n                \"position\": 1,\n                \"slot_1_points\": 8,\n                \"slot_2_points\": 2,\n                \"slot_3_points\": null,\n                \"frame_total\": 17\n            },\n            {\n                \"id\": 72,\n                \"position\": 2,\n                \"slot_1_points\": 7,\n                \"slot_2_points\": 3,\n                \"slot_3_points\": null,\n                \"frame_total\": 30\n            },\n            {\n                \"id\": 73,\n                \"position\": 3,\n                \"slot_1_points\": 3,\n                \"slot_2_points\": 4,\n                \"slot_3_points\": null,\n                \"frame_total\": 37\n            },\n            {\n                \"id\": 74,\n                \"position\": 4,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 57\n            },\n            {\n                \"id\": 75,\n                \"position\": 5,\n                \"slot_1_points\": 2,\n                \"slot_2_points\": 8,\n                \"slot_3_points\": null,\n                \"frame_total\": 77\n            },\n            {\n                \"id\": 76,\n                \"position\": 6,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 105\n            },\n            {\n                \"id\": 77,\n                \"position\": 7,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 123\n            },\n            {\n                \"id\": 78,\n                \"position\": 8,\n                \"slot_1_points\": 8,\n                \"slot_2_points\": 0,\n                \"slot_3_points\": null,\n                \"frame_total\": 131\n            },\n            {\n                \"id\": 79,\n                \"position\": 9,\n                \"slot_1_points\": 10,\n                \"slot_2_points\": null,\n                \"slot_3_points\": null,\n                \"frame_total\": 151\n            },\n            {\n                \"id\": 80,\n                \"position\": 10,\n                \"slot_1_points\": 8,\n                \"slot_2_points\": 2,\n                \"slot_3_points\": 9,\n                \"frame_total\": 170\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "game[player_name]",
+							"value": "Adam Smith",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/v1/games",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"games"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "create",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "game[player_name]",
+									"value": "Adam Smith",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/v1/games",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"games"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "_a_bowling_game_session=HpEz3Dg62qK80PJ1j%2BfFFPZtoImvPjl%2FUujGq4wKYRe9ARMiFgfpQDSC6WcHMivCG4bzrLYkq%2BGvBJZqcH7Ab%2Fw0gSwSZ2C1kNS0cB5%2BemIAJMqrtXsx8hX7xWNpDFlPzFyD1zMXCr1tr9AOunKt%2BZV8w0Svi8vSZ%2Bxg3Uef8npx0Ljkm2tOX%2BttxKwM1Wixev9wnNJxxknR90Ny6L75--kEum14PJvRKSL6dq--Udu7fhiZHcUPshtwd7hIaw%3D%3D; path=/; HttpOnly; SameSite=Lax"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3467a29251f3ebf5bacb7162b34b28cc\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "aa57211e-033b-4d42-adea-39f5f83e154c"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.193754"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "start_processing.action_controller;dur=0.18, sql.active_record;dur=9.98, render.active_model_serializers;dur=0.14, process_action.action_controller;dur=21.68"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Congratulation Adam Smith!, You can start game\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Score",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "frame[score]",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/v1/games/add_score",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"games",
+						"add_score"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Score",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "frame[score]",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/v1/games/add_score",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"games",
+								"add_score"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "_a_bowling_game_session=G2g4n1DBOmEayHqJXWykk2eCta5ukyBPtpfQPkmcuy8TXu5IZ7KiETmBWpNQwn6dWaC6JEfNgZVBEhjzbcs8zrkb3qkgZi6CO4dnCe4m2P4gYYg6EBMSyuhCBEhKph%2FBOqf%2Fqb60eJGBrbrGle%2BncpYuMixryXMEsEDrbwGFs%2FgIYykSXl41UW1JtpyKRCvWyjZiuWhM4nKbJNmR5MMW--jHVqJYShz51QX6NQ--Pz8RYM6ING7dM5rpxOHtrg%3D%3D; path=/; HttpOnly; SameSite=Lax"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a020291151ab53c9a6116535c2ed9357\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "6611ee77-c397-4250-9a75-302b462c81af"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.046748"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "start_processing.action_controller;dur=0.32, sql.active_record;dur=22.68, instantiation.active_record;dur=0.93, render.active_model_serializers;dur=9.43, process_action.action_controller;dur=37.76"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"player_name\": \"Adam Smith\",\n    \"total_score\": 98,\n    \"frames\": [\n        {\n            \"id\": 7,\n            \"position\": 1,\n            \"slot_1_points\": 1,\n            \"slot_2_points\": 5,\n            \"slot_3_points\": null,\n            \"frame_total\": 6\n        },\n        {\n            \"id\": 8,\n            \"position\": 2,\n            \"slot_1_points\": 7,\n            \"slot_2_points\": 3,\n            \"slot_3_points\": null,\n            \"frame_total\": 19\n        },\n        {\n            \"id\": 9,\n            \"position\": 3,\n            \"slot_1_points\": 3,\n            \"slot_2_points\": 3,\n            \"slot_3_points\": null,\n            \"frame_total\": 25\n        },\n        {\n            \"id\": 10,\n            \"position\": 4,\n            \"slot_1_points\": 3,\n            \"slot_2_points\": 3,\n            \"slot_3_points\": null,\n            \"frame_total\": 31\n        },\n        {\n            \"id\": 11,\n            \"position\": 5,\n            \"slot_1_points\": 3,\n            \"slot_2_points\": 3,\n            \"slot_3_points\": null,\n            \"frame_total\": 37\n        },\n        {\n            \"id\": 12,\n            \"position\": 6,\n            \"slot_1_points\": 3,\n            \"slot_2_points\": 3,\n            \"slot_3_points\": null,\n            \"frame_total\": 43\n        },\n        {\n            \"id\": 13,\n            \"position\": 7,\n            \"slot_1_points\": 3,\n            \"slot_2_points\": 3,\n            \"slot_3_points\": null,\n            \"frame_total\": 49\n        },\n        {\n            \"id\": 14,\n            \"position\": 8,\n            \"slot_1_points\": 3,\n            \"slot_2_points\": 3,\n            \"slot_3_points\": null,\n            \"frame_total\": 55\n        },\n        {\n            \"id\": 18,\n            \"position\": 9,\n            \"slot_1_points\": 10,\n            \"slot_2_points\": null,\n            \"slot_3_points\": null,\n            \"frame_total\": 80\n        },\n        {\n            \"id\": 19,\n            \"position\": 10,\n            \"slot_1_points\": 10,\n            \"slot_2_points\": 5,\n            \"slot_3_points\": 3,\n            \"frame_total\": 98\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get_score_card",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/v1/games/get_score_card",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"games",
+						"get_score_card"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_score_card",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/v1/games/get_score_card",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"games",
+								"get_score_card"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "strict-origin-when-cross-origin"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "_a_bowling_game_session=9vmUU%2FrgtOCJlm7oPIbayPnIPKHgQ9GAivQGospPBc4%2FPkcopYHWk0IOST%2BVKeV8yRcei3bzOV%2Frc4alFBYYGlZ8Yk2%2F%2FMqfTd29QlruV4aC73NiF64fR0gqSTm2pJAss9c9E5Qhq9yEcMifi8P9GgqoQiNCEKN%2FeLRB8TCRzyd%2FezXH9oZJg93BlBJrHctrNuJvYGmMl2PovYL%2FLXy6--l6SJmdZvya4GJIJa--07RBKHBMbr3qLBJ2CLaRXA%3D%3D; path=/; HttpOnly; SameSite=Lax"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"936f0280c0dbcbf24131e52f04efcbfd\""
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=0, private, must-revalidate"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "43c41bdc-72d3-4ed3-8083-1a1cdef5c2cf"
+						},
+						{
+							"key": "X-Runtime",
+							"value": "0.023770"
+						},
+						{
+							"key": "Server-Timing",
+							"value": "start_processing.action_controller;dur=0.21, sql.active_record;dur=4.99, instantiation.active_record;dur=0.54, render.active_model_serializers;dur=11.14, process_action.action_controller;dur=19.66"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 7,\n    \"player_name\": \"Adam Smith\",\n    \"total_score\": 170,\n    \"frames\": [\n        {\n            \"id\": 71,\n            \"position\": 1,\n            \"slot_1_points\": 8,\n            \"slot_2_points\": 2,\n            \"slot_3_points\": null,\n            \"frame_total\": 17\n        },\n        {\n            \"id\": 72,\n            \"position\": 2,\n            \"slot_1_points\": 7,\n            \"slot_2_points\": 3,\n            \"slot_3_points\": null,\n            \"frame_total\": 30\n        },\n        {\n            \"id\": 73,\n            \"position\": 3,\n            \"slot_1_points\": 3,\n            \"slot_2_points\": 4,\n            \"slot_3_points\": null,\n            \"frame_total\": 37\n        },\n        {\n            \"id\": 74,\n            \"position\": 4,\n            \"slot_1_points\": 10,\n            \"slot_2_points\": null,\n            \"slot_3_points\": null,\n            \"frame_total\": 57\n        },\n        {\n            \"id\": 75,\n            \"position\": 5,\n            \"slot_1_points\": 2,\n            \"slot_2_points\": 8,\n            \"slot_3_points\": null,\n            \"frame_total\": 77\n        },\n        {\n            \"id\": 76,\n            \"position\": 6,\n            \"slot_1_points\": 10,\n            \"slot_2_points\": null,\n            \"slot_3_points\": null,\n            \"frame_total\": 105\n        },\n        {\n            \"id\": 77,\n            \"position\": 7,\n            \"slot_1_points\": 10,\n            \"slot_2_points\": null,\n            \"slot_3_points\": null,\n            \"frame_total\": 123\n        },\n        {\n            \"id\": 78,\n            \"position\": 8,\n            \"slot_1_points\": 8,\n            \"slot_2_points\": 0,\n            \"slot_3_points\": null,\n            \"frame_total\": 131\n        },\n        {\n            \"id\": 79,\n            \"position\": 9,\n            \"slot_1_points\": 10,\n            \"slot_2_points\": null,\n            \"slot_3_points\": null,\n            \"frame_total\": 151\n        },\n        {\n            \"id\": 80,\n            \"position\": 10,\n            \"slot_1_points\": 8,\n            \"slot_2_points\": 2,\n            \"slot_3_points\": 9,\n            \"frame_total\": 170\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
