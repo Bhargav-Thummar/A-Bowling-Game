@@ -20,6 +20,9 @@ class Game < ApplicationRecord
   end
 
   def total_score
-    frames.find_by_position(10)&.frame_total || 0
+    frames
+      .where
+      .not(frame_total: nil)
+      .last&.frame_total || 0
   end
 end

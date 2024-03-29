@@ -71,34 +71,36 @@ class Frame < ApplicationRecord
     # custom validation methods
     def frame_position
       if game.frames.count >= 10
-        errors.add(:frame_position, I18n.t("errors.limit"))
+        errors.add(:frame_position, I18n.t("errors.position_limit"))
       end
     end
   
     def frame_slot_score
       # position is less than 10 but sum of points of slot-1 & slot-2 is greater than 10
-      if (slot_1_points.to_i + slot_2_points.to_i) > 10
-        errors.add(:frame_total, I18n.t("errors.limit"))
+      if position < 10 && (slot_1_points.to_i + slot_2_points.to_i) > 10
+        errors.add(:score_value, I18n.t("errors.frame_total"))
         return
-      end
 
-      if position == 10
+      elsif position == 10
         # all points is greater than 10
         if slot_1_points.to_i > 10 || slot_2_points.to_i > 10 || slot_3_points.to_i > 10
-          errors.add(:frame_total, I18n.t("errors.limit"))
+          errors.add(:score_value, I18n.t("errors.frame_total"))
+
+        elsif slot_1_points.to_i != 10 && (slot_1_points.to_i + slot_2_points.to_i > 10)
+          errors.add(:score_value, I18n.t("errors.frame_total"))
 
         elsif slot_2_points.to_i <= 10 && slot_3_points.to_i <= 10
 
           # slot-1 is 10 but sum of points of slot-2 & slot-3 are greater than 10
           if slot_1_points.to_i == 10
-            if (slot_2_points.to_i + slot_3_points.to_i) > 10
-              errors.add(:frame_total, I18n.t("errors.limit"))
+            if slot_2_points.to_i != 10 && (slot_2_points.to_i + slot_3_points.to_i) > 10
+              errors.add(:score_value, I18n.t("errors.frame_total"))
             end
 
           # sum of 2 points is greater than 10 OR sum of all points is greater than 10
           elsif slot_1_points.to_i < 10 && (slot_1_points.to_i + slot_2_points.to_i) != 10
             if ((slot_1_points.to_i + slot_2_points.to_i) < 10 && (slot_1_points.to_i + slot_2_points.to_i + slot_3_points.to_i) > 10) 
-              errors.add(:frame_total, I18n.t("errors.limit"))
+              errors.add(:score_value, I18n.t("errors.frame_total"))
             end
           end
 

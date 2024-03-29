@@ -33,4 +33,5 @@ en:
   hello: "Hello world"
 
   errors:
-    limit: "can't not be more then 10"
+    position_limit: "can't not be more then 10"
+    frame_total: "is invalid"
