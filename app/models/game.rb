@@ -18,4 +18,8 @@ class Game < ApplicationRecord
   def add_score(score: 0)
     frames.active_frame.add_score(score: score)
   end
+
+  def total_score
+    frames.find_by_position(10)&.frame_total || 0
+  end
 end

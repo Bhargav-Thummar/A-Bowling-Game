@@ -14,6 +14,6 @@ class GameSerializer < ActiveModel::Serializer
   attributes :id, :player_name, :total_score
 
   def total_score
-    @object.frames.last.frame_total
+    @object.total_score
   end
 end

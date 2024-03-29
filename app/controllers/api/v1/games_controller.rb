@@ -1,8 +1,12 @@
 class Api::V1::GamesController < ApplicationController
-  before_action :current_game, only: [:add_score]
+  before_action :current_game, only: [:add_score, :get_score_card]
 
   def index
     render(json: Game.all, each_serializer: GameSerializer)
+  end
+
+  def get_score_card
+    render(json: current_game, serializer: GameSerializer)
   end
 
   def create
