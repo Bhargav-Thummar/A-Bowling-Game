@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+
+  errors:
+    limit: "can't not be more then 10"
