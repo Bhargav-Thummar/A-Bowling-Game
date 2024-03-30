@@ -47,6 +47,9 @@ group :development, :test do
 
   # To add a comment summarizing the current schema to the top of each model
   gem 'annotate'
+
+  # test framework
+  gem 'rspec-rails'
 end
 
 group :development do

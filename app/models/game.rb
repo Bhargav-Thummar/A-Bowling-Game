@@ -15,8 +15,12 @@ class Game < ApplicationRecord
   # associations
   has_many :frames, inverse_of: :game, dependent: :destroy
 
+  def active_frame
+    frames.active_frame
+  end
+
   def add_score(score: 0)
-    frames.active_frame.add_score(score:)
+    active_frame.add_score(score:)
   end
 
   def total_score
