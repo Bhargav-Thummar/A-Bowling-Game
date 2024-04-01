@@ -40,12 +40,12 @@ rails s
 ## API Endpoints
 Here is the list of APIs
 
-| Method   | URL                                      | Description                              |
-| -------- | ---------------------------------------- | ---------------------------------------- |
-| `GET`    | `/v1/games`                             | To retrieve all games with score of each frames.                     |
-| `POST`   | `/v1/games`                             | To start new game.                       |
-| `POST`    | `/v1/games/add_score`                          | To add score.                       |
-| `GET`  | `/v1/games/get_score_card`                          | To get recent game score 
+| Method   | URL                                      | Body (form-data)                        | Description                                      |
+| -------- | ---------------------------------------- |---------------------------------------- | ------------------------------------------------ |
+| `GET`    | `/v1/games`                              | -                                       | To retrieve all games with score of each frames  | 
+| `POST`   | `/v1/games`                              | game[player_name]                       | To start new game.                               |
+| `POST`   | `/v1/games/add_score`                    | frame[score]                            | To add score.                                    |
+| `GET`    | `/v1/games/get_score_card`               | -                                       | To get recent game score                         |
 
 ## How to Use
 
